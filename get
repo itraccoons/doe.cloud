@@ -10,9 +10,6 @@ do_install()
 
     $sh_c "curl -fsSL https://doe.cloud/doe_latest.tar.gz | tar -xvz -C ~"
     $sh_c "~/doe/bin/doe _self init"
-
-#    $sh_c "curl -fsSL https://doe.cloud/doe_latest.tar.gz | install -m 755 doe /usr/local/bin"
-#    $sh_c "pip install yamllint"
 }
 
 do_install
