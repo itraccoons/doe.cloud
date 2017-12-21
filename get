@@ -7,9 +7,8 @@ set -e
 do_install()
 {
     sh_c='sh -c'
-
-    $sh_c "curl -fsSL https://doe.cloud/doe_latest.tar.gz | tar -xvz -C ~"
-    $sh_c "~/doe/bin/doe _self init"
+#    $sh_c "curl -fsSL https://doe.cloud/get | install -m 755 doe /usr/local/bin"
+    $sh_c "https://raw.githubusercontent.com/itraccoons/doe/master/bin/doe | install -m 755 doe /usr/local/bin"
 }
 
 do_install
