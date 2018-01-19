@@ -1,0 +1,16 @@
+---
+builtin:
+  export:
+    - PROJECT_ID=doe-cloud
+    - PROJECT_NAME="doe.cloud"
+    - BILLING="00A332-38ABA6-657D6E"
+
+gcloud:
+  projects:
+    - create $PROJECT_ID --name=$PROJECT_NAME
+
+gsutil:
+  mb:
+    - gs://doe.cloud
+
+...
