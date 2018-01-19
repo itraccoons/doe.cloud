@@ -13,28 +13,32 @@ builtin:
     - PROJECT_ID=doe-cloud
     - PROJECT_NAME=doe-cloud
     - BILLING="00A332-38ABA6-657D6E"
-    - WEBSITE=doe.cloud
+    - DOMAIN_NAME=doe.cloud
   eval:
-    - yamllint --strict ./doe-compose.yml; [ $? -ne 0 ] && exit
+    - yamllint --config-data relaxed ./doe-compose.yml; [ $? -ne 0 ] && exit
 
 gcloud:
   projects:
     - create $PROJECT_ID --name=$PROJECT_NAME
-    - set compute/region us-central
-    - set compute/zone us-central1-a
   config:
     - set project $PROJECT_ID
+    - set compute/region us-central
+    - set compute/zone us-central1-a
   beta: billing projects
     - link $PROJECT_ID --billing-account=$BILLING; [ $? -ne 0 ] && exit
+#  dns:
+#    - managed-zones create $PROJECT_ID --description=$PROJECT_NAME --dns-name=$DOMAIN_NAME
+#    - record-sets import ./dns_records --zone $PROJECT_ID --zone-file-format
 
 gsutil:
   mb:
-    - gs://$WEBSITE
+    - gs://$DOMAIN_NAME
   cp:
-    - ./index.html gs://$WEBSITE
-    - ./get gs://$WEBSITE
+    - ./index.html gs://$DOMAIN_NAME
+    - ./get gs://$DOMAIN_NAME
   acl:
-    - ch -u AllUsers:R gs://$WEBSITE/*
+    - ch -u AllUsers:R gs://$DOMAIN_NAME/*
   web:
-    - set -m index.html -e 404.html gs://$WEBSITE
+    - set -m index.html -e 404.html gs://$DOMAIN_NAME
+
 ...
