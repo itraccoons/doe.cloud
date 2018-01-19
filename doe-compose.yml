@@ -1,16 +1,36 @@
 ---
+pip:
+  install: --user
+    - yamllint
+
 builtin:
   export:
+    - PATH=~/.local/bin:$PATH
     - PROJECT_ID=doe-cloud
-    - PROJECT_NAME="doe.cloud"
+    - PROJECT_NAME=doe-cloud
     - BILLING="00A332-38ABA6-657D6E"
+    - WEBSITE=doe.cloud
+  eval:
+    - yamllint --strict ./doe-compose.yml; [ $? -ne 0 ] && exit
 
 gcloud:
   projects:
     - create $PROJECT_ID --name=$PROJECT_NAME
+    - set compute/region us-central
+    - set compute/zone us-central1-a
+  config:
+    - set project $PROJECT_ID
+  beta: billing projects
+    - link $PROJECT_ID --billing-account=$BILLING; [ $? -ne 0 ] && exit
 
 gsutil:
   mb:
-    - gs://doe.cloud
-
+    - gs://$WEBSITE
+  cp:
+    - ./index.html gs://$WEBSITE
+    - ./get gs://$WEBSITE
+  acl:
+    - ch -u AllUsers:R gs://$WEBSITE/*
+  web:
+    - set -m index.html -e 404.html gs://$WEBSITE
 ...
