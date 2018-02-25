@@ -1,6 +1,5 @@
-# Deploy Static Website
-# TO:   Google Cloud Platform
-# FROM: Cloud Shell with doe-compose tool
+# Deploy Static Website to Google Cloud Platform
+# From Cloud Shell with doe-compose tool
 # $ doe compose up
 ---
 pip:
