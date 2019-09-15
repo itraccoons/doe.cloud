@@ -1,1 +1,26 @@
-{}
+{ 
+   "lsResponse":[ 
+      { 
+         "id":"1",
+         "name":"StoreMyNewFolder",
+         "type":"StoreMy Folder",
+         "location":"StoreMy",
+         "owner":"Oleksii Kucheruk",
+         "modified":"2019-09-15 20:36:15",
+         "opened":"2019-09-15 20:36:15",
+         "created":"2019-09-15 20:36:15",
+         "downloadURL":"https://doe.cloud/storemy/mkdir-reponse.json"
+      },
+      { 
+         "id":"2",
+         "name":"StoreMyNewFolder 2",
+         "type":"StorMy Folder",
+         "location":"StoreMy",
+         "owner":"Oleksii Kucheruk",
+         "modified":"2019-09-15 20:37:15",
+         "opened":"2019-09-15 20:37:15",
+         "created":"2019-09-15 20:37:15",
+         "downloadURL":"https://doe.cloud/storemy/ls-reponse.json"
+      }
+   ]
+}
