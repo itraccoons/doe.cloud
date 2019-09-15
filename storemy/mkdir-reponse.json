@@ -1,11 +1,13 @@
 { 
-   "id":"1",
-   "name":"StoreMyNewFolder",
-   "type":"Storemy Folder",
-   "location": "StoreMy"
-   "owner":"Oleksii Kucheruk",
-   "Modified":"2019-09-15 20:36:15",
-   "Opened":"2019-09-15 20:36:15",
-   "Created":"2019-09-15 20:36:15",
-   "downloadURL":"https://doe.cloud/storemy/mkdir-reponse.json"
+   "mkdirResponse":{ 
+      "id":"1",
+      "name":"StoreMyNewFolder",
+      "type":"Storemy Folder",
+      "location":"StoreMy",
+      "owner":"Oleksii Kucheruk",
+      "modified":"2019-09-15 20:36:15",
+      "opened":"2019-09-15 20:36:15",
+      "created":"2019-09-15 20:36:15",
+      "downloadURL":"https://doe.cloud/storemy/mkdir-reponse.json"
+   }
 }
